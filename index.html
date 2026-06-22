@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lacfog Academy — Building Excellence Through Education</title>
+<meta name="description" content="Lacfog Academy in Port Harcourt offers quality education from Nursery through Senior Secondary School, building excellence and shaping future leaders.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Updated Lacfog Brand Colors */
+    --brand-dark: #8B001A;   /* Deep Burgundy */
+    --brand-primary: #C8102E; /* Lacfog Crimson Red */
+    --brand-bright: #E02443; /* Lighter Red for accents */
+    --brand-accent: #FACC15; /* Lacfog Uniform Yellow */
+    
+    --cream: #FAFAF7;
+    --paper: #F3F1E9;
+    --charcoal: #16201C;
+    --ink: #1A1F1C;
+    --line: rgba(200,16,46,0.14); /* Red-tinted subtle line */
+
+    --font-display: "Fraunces", "Iowan Old Style", serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --container: 1240px;
+  }
+
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none;}
+
+  :focus-visible{
+    outline: 2.5px solid var(--brand-accent);
+    outline-offset: 3px;
+  }
+
+  .container{
+    width:100%;
+    max-width: var(--container);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color: var(--brand-primary);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px; height:2px;
+    background: var(--brand-accent);
+  }
+
+  h1,h2,h3,h4{
+    font-family: var(--font-display);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-weight:600;
+    font-size:0.95rem;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, background 0.35s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background: var(--brand-primary);
+    color: #fff;
+    box-shadow: 0 8px 24px -8px rgba(200,16,46,0.55);
+  }
+  .btn-primary:hover{
+    background: var(--brand-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -10px rgba(200,16,46,0.6);
+  }
+  .btn-ghost{
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    backdrop-filter: blur(6px);
+  }
+  .btn-ghost:hover{
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+  }
+  .btn-gold{ 
+    background: var(--brand-accent);
+    color: var(--charcoal);
+  }
+  .btn-gold:hover{
+    background: #E5BB0A;
+    transform: translateY(-2px);
+  }
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    background: var(--brand-dark);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight:500;
+  }
+  .topbar .container{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap: 24px;
+    padding-top:8px;
+    padding-bottom:8px;
+  }
+  .topbar a{
+    display:flex; align-items:center; gap:7px;
+    opacity:0.95;
+    transition: opacity 0.2s ease;
+  }
+  .topbar a:hover{ opacity:1; color: var(--brand-accent); }
+  .topbar svg{width:14px; height:14px; flex-shrink:0;}
+
+  /* ============ NAV ============ */
+  .nav-wrap{
+    position: sticky;
+    top:0;
+    z-index: 200;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow 0.3s ease;
+  }
+  .nav-wrap.scrolled{
+    box-shadow: 0 6px 24px -10px rgba(0,0,0,0.12);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 0;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  
+  /* Adjusted for real logo image */
+  .brand-mark{
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(200,16,46,0.15);
+    overflow: hidden;
+    border: 2px solid var(--brand-primary);
+  }
+  .brand-mark img{width:100%; height:100%; object-fit:contain; padding: 2px;}
+  
+  .brand-name{
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size:1.28rem;
+    color: var(--brand-primary);
+    line-height:1.1;
+  }
+  .brand-name span{
+    display:block;
+    font-family: var(--font-body);
+    font-weight:600;
+    font-size:0.62rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color: #888; 
+    margin-top:2px;
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+  }
+  .nav-links a{
+    font-weight:600;
+    font-size:0.94rem;
+    color: var(--ink);
+    position:relative;
+    padding: 4px 0;
+    transition: color 0.25s ease;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0; height:2px;
+    background: var(--brand-primary);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover{ color: var(--brand-primary); }
+  .nav-links a:hover::after{ width:100%; }
+
+  .nav-actions{ display:flex; align-items:center; gap:18px; }
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    padding: 6px;
+  }
+  .hamburger span{
+    width:24px; height:2px;
+    background: var(--brand-primary);
+    border-radius:2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    overflow:hidden;
+    max-height:0;
+    transition: max-height 0.4s ease;
+  }
+  .mobile-menu.open{ max-height: 420px; }
+  .mobile-menu a{
+    padding: 16px 24px;
+    border-top: 1px solid var(--line);
+    font-weight:600;
+    color: var(--ink);
+  }
+  .mobile-menu .btn{ margin: 16px 24px 20px; }
+
+  @media (max-width: 920px){
+    .nav-links{ display:none; }
+    .nav-actions .btn-primary{ display:none; }
+    .hamburger{ display:flex; }
+    .mobile-menu{ display:flex; }
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,16,46,0.25), transparent 60%),
+      linear-gradient(155deg, #1A1A1A 0%, #37000A 45%, #1A1A1A 100%);
+  }
+  .hero-bg-img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    opacity:0;
+    z-index:0;
+  }
+  .hero-bg-img.loaded{ opacity:1; }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(20,4,8,0.65) 0%, rgba(20,4,8,0.78) 55%, rgba(20,4,8,0.95) 100%);
+    z-index:1;
+  }
+  .hero-pattern{
+    position:absolute; inset:0;
+    opacity:0.12;
+    z-index:0;
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1.5px, transparent 1.5px, transparent 64px);
+  }
+  .hero-pattern::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.35) 0px, rgba(255,255,255,0.35) 1px, transparent 1px, transparent 88px);
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    max-width: 880px;
+    padding: 0 24px;
+    color:#fff;
+  }
+  .hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 8px 18px;
+    border-radius:999px;
+    background: rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.3);
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom: 28px;
+    backdrop-filter: blur(6px);
+    opacity:0;
+    animation: fadeUp 0.8s ease 0.1s forwards;
+  }
+  .hero-badge .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--brand-accent);
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 6.2vw, 4.6rem);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:-0.01em;
+    margin-bottom: 24px;
+    opacity:0;
+    animation: fadeUp 0.9s ease 0.25s forwards;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color: var(--brand-accent);
+  }
+  .hero p.sub{
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight:400;
+    color: rgba(255,255,255,0.88);
+    max-width: 600px;
+    margin: 0 auto 42px;
+    opacity:0;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+    opacity:0;
+    animation: fadeUp 0.9s ease 0.55s forwards;
+  }
+  .hero-scroll{
+    position:absolute;
+    bottom: 36px;
+    left:50%;
+    transform: translateX(-50%);
+    z-index:2;
+    color: rgba(255,255,255,0.7);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    font-size:0.7rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    animation: fadeUp 0.9s ease 0.8s forwards;
+    opacity:0;
+  }
+  .hero-scroll-line{
+    width:1px; height:34px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(22px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse{
+    0%, 100%{ opacity:0.4; transform: scaleY(0.7); }
+    50%{ opacity:1; transform: scaleY(1); }
+  }
+
+  /* ============ SECTION SHARED ============ */
+  section{ position:relative; }
+  .section-head{
+    text-align:center;
+    max-width: 680px;
+    margin: 0 auto 56px;
+  }
+  .section-head h2{
+    font-size: clamp(2rem, 3.6vw, 2.9rem);
+    font-weight:600;
+    color: var(--brand-primary);
+    margin-bottom:16px;
+  }
+  .section-head p{
+    font-size:1.08rem;
+    color: #5B645E;
+  }
+
+  /* ============ DISCOVER ============ */
+  .discover{
+    padding: 120px 0 110px;
+    background: var(--cream);
+  }
+  .program-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .program-card{
+    position:relative;
+    aspect-ratio: 1/1.15;
+    border-radius: 18px;
+    overflow:hidden;
+    cursor:pointer;
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1), box-shadow 0.5s ease;
+    box-shadow: 0 12px 30px -16px rgba(200,16,46,0.35);
+  }
+  .program-card:nth-child(2){ transform: translateY(18px); }
+  .program-card:nth-child(4){ transform: translateY(18px); }
+  .program-card:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 24px 44px -16px rgba(200,16,46,0.45);
+  }
+  .program-card:nth-child(2):hover, .program-card:nth-child(4):hover{
+    transform: translateY(10px) scale(1.02);
+  }
+  .program-img{
+    position:absolute; inset:0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+  }
+  .program-card:hover .program-img{ transform: scale(1.08); }
+  .program-card::before{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(20,4,8,0.15) 0%, rgba(20,4,8,0.88) 100%);
+    z-index:1;
+  }
+  .program-label{
+    position:absolute;
+    bottom: 22px; left:22px; right:22px;
+    z-index:2;
+    color:#fff;
+  }
+  .program-num{
+    font-family: var(--font-display);
+    font-size:0.78rem;
+    color: var(--brand-accent);
+    font-weight:600;
+    letter-spacing:0.08em;
+    display:block;
+    margin-bottom:6px;
+  }
+  .program-label h3{
+    font-size:1.3rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+
+  @media (max-width: 980px){
+    .program-grid{ grid-template-columns: repeat(2, 1fr); }
+    .program-card:nth-child(2), .program-card:nth-child(4){ transform:none; }
+    .program-card:nth-child(2):hover, .program-card:nth-child(4):hover{ transform: translateY(-8px) scale(1.02); }
+  }
+  @media (max-width: 560px){
+    .program-grid{ grid-template-columns: 1fr; }
+    .program-card{ aspect-ratio: 16/10; }
+  }
+
+  /* ============ FEATURES ============ */
+  .features{
+    padding: 110px 0;
+    background: #fff;
+  }
+  .feature-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .feature-card{
+    position:relative;
+    border-radius: 18px;
+    overflow:hidden;
+    min-height: 380px;
+    display:flex;
+    align-items:flex-end;
+    box-shadow: 0 14px 32px -18px rgba(0,0,0,0.25);
+  }
+  .feature-img{
+    position:absolute; inset:0;
+    background-size:cover;
+    background-position:center;
+    filter: grayscale(0.55) contrast(1.05);
+    transition: filter 0.5s ease, transform 0.6s ease;
+  }
+  .feature-card:hover .feature-img{
+    filter: grayscale(0) contrast(1.05);
+    transform: scale(1.06);
+  }
+  .feature-card::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(200,16,46,0) 35%, rgba(20,4,8,0.95) 100%);
+  }
+  .feature-content{
+    position:relative;
+    z-index:2;
+    padding: 32px 28px;
+    color:#fff;
+  }
+  .feature-tag{
+    display:inline-block;
+    font-size:0.7rem;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color: var(--brand-accent);
+    margin-bottom:10px;
+  }
+  .feature-content h3{
+    font-size:1.5rem;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .feature-content p{
+    font-size:0.92rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 280px;
+  }
+
+  @media (max-width:920px){
+    .feature-grid{ grid-template-columns:1fr; }
+    .feature-card{ min-height:280px; }
+  }
+
+  /* ============ STATS ============ */
+  .stats{
+    padding: 90px 0;
+    background: linear-gradient(155deg, var(--brand-primary), var(--brand-dark));
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .stats::before{
+    content:"";
+    position:absolute;
+    top:-40%; right:-10%;
+    width:480px; height:480px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(250,204,21,0.18), transparent 70%);
+  }
+  .stats-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .stat-item{
+    text-align:center;
+    padding: 0 12px;
+  }
+  .stat-number{
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+    gap:2px;
+  }
+  .stat-underline{
+    width:0;
+    height:2px;
+    background: var(--brand-accent);
+    margin: 14px auto 14px;
+    transition: width 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+  .stat-item.in-view .stat-underline{ width:52px; }
+  .stat-label{
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    color: rgba(255,255,255,0.85);
+    font-weight:500;
+  }
+
+  @media (max-width:860px){
+    .stats-grid{ grid-template-columns: repeat(2, 1fr); row-gap:44px; }
+  }
+
+  /* ============ NEWS & EVENTS ============ */
+  .news{
+    padding: 120px 0;
+    background: var(--paper);
+  }
+  .news-cols{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+  }
+  .news-col h3{
+    font-size:1.5rem;
+    color: var(--brand-primary);
+    font-weight:600;
+    margin-bottom: 28px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .news-col h3::before{
+    content:"";
+    width:8px; height:8px;
+    border-radius:50%;
+    background: var(--brand-accent);
+  }
+  .news-card{
+    display:flex;
+    gap:18px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .news-card:last-child{ border-bottom:none; }
+  .news-date{
+    flex-shrink:0;
+    width:62px;
+    height:62px;
+    border-radius:12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color: var(--brand-primary);
+  }
+  .news-date .d{ font-family:var(--font-display); font-weight:700; font-size:1.25rem; line-height:1; }
+  .news-date .m{ font-size:0.62rem; text-transform:uppercase; letter-spacing:0.08em; color: var(--brand-dark); font-weight:700; }
+  .news-text h4{
+    font-family: var(--font-body);
+    font-weight:700;
+    font-size:1rem;
+    margin-bottom:5px;
+    color: var(--ink);
+  }
+  .news-text p{ font-size:0.88rem; color:#6B746E; }
+
+  @media (max-width:860px){
+    .news-cols{ grid-template-columns:1fr; gap:48px; }
+  }
+
+  /* ============ GALLERY ============ */
+  .gallery{
+    padding: 120px 0;
+    background: #fff;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 200px 200px;
+    gap: 16px;
+  }
+  .gallery-item{
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    cursor:pointer;
+  }
+  .gallery-item:nth-child(1){ grid-column: 1 / 3; grid-row: 1 / 3; }
+  .gallery-item:nth-child(4){ grid-column: 4 / 5; grid-row: 1 / 3; }
+  .gallery-img{
+    position:absolute; inset:0;
+    background-size:cover;
+    background-position:center;
+    transition: transform 0.6s ease;
+  }
+  .gallery-item:hover .gallery-img{ transform: scale(1.1); }
+  .gallery-overlay{
+    position:absolute; inset:0;
+    background: rgba(20,4,8,0);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: background 0.35s ease;
+  }
+  .gallery-item:hover .gallery-overlay{ background: rgba(20,4,8,0.45); }
+  .gallery-icon{
+    width:44px; height:44px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.95);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0;
+    transform: scale(0.6);
+    transition: all 0.35s ease;
+    color: var(--brand-primary);
+  }
+  .gallery-item:hover .gallery-icon{ opacity:1; transform: scale(1); }
+
+  @media (max-width:860px){
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-template-rows: 180px 180px 180px; }
+    .gallery-item:nth-child(1){ grid-column:1/3; grid-row:1/2; }
+    .gallery-item:nth-child(4){ grid-column:1/3; grid-row:2/3; }
+  }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0;
+    background: rgba(10,2,4,0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    padding:24px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{
+    max-width:90vw; max-height:85vh;
+    border-radius:10px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position:absolute; top:28px; right:32px;
+    width:42px; height:42px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.12);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+    border:1px solid rgba(255,255,255,0.3);
+  }
+  .lightbox-close:hover{ background: rgba(255,255,255,0.22); }
+
+  /* ============ CTA ============ */
+  .cta-section{
+    padding: 110px 0;
+    background: linear-gradient(150deg, var(--brand-primary), var(--brand-dark));
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+  .cta-section::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 2px, transparent 40px);
+  }
+  .cta-section .container{ position:relative; z-index:1; }
+  .cta-section h2{
+    color:#fff;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .cta-section p{
+    color: rgba(255,255,255,0.85);
+    font-size:1.1rem;
+    max-width:520px;
+    margin: 0 auto 38px;
+  }
+  .cta-btns{
+    display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.78);
+    padding: 90px 0 0;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 0.8fr 1fr 0.9fr;
+    gap: 48px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .footer-brand .brand-name{ color:#fff; }
+  .footer-col h4{
+    font-family: var(--font-body);
+    color:#fff;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom: 22px;
+  }
+  .footer-col p{ font-size:0.92rem; line-height:1.7; max-width: 280px; }
+  .footer-links li{ margin-bottom:13px; }
+  .footer-links a{
+    font-size:0.92rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display:inline-block;
+  }
+  .footer-links a:hover{ color: var(--brand-accent); padding-left:4px; }
+  .footer-contact li{
+    display:flex;
+    gap:10px;
+    margin-bottom:16px;
+    font-size:0.9rem;
+    line-height:1.6;
+  }
+  .footer-contact svg{ flex-shrink:0; margin-top:3px; color: var(--brand-accent); width:16px; height:16px;}
+  .footer-contact a:hover{ color: var(--brand-accent); }
+
+  .social-row{ display:flex; gap:10px; margin-bottom: 26px;}
+  .social-row a{
+    width:38px; height:38px;
+    border-radius:50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+    transition: all 0.25s ease;
+  }
+  .social-row a:hover{
+    background: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: var(--charcoal);
+    transform: translateY(-3px);
+  }
+  .social-row svg{ width:16px; height:16px; }
+
+  .map-embed{
+    border-radius:12px;
+    overflow:hidden;
+    height:120px;
+    border: 1px solid rgba(255,255,255,0.15);
+    filter: grayscale(0.3) invert(0.92) contrast(0.9);
+  }
+  .map-embed iframe{ width:100%; height:100%; border:0; }
+
+  .footer-bottom{
+    padding: 26px 0 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.82rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-bottom a:hover{ color: var(--brand-accent); }
+
+  @media (max-width: 980px){
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap:40px; }
+  }
+  @media (max-width: 600px){
+    .footer-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ============ UTIL: animated count ============ */
+  [data-animate]{
+    opacity:0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  [data-animate].in-view{
+    opacity:1;
+    transform: translateY(0);
+  }
+
+  /* skip link */
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background: var(--brand-primary); color:#fff; padding:10px 16px; z-index:2000;
+  }
+  .skip-link:focus{ left:12px; top:12px; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="container">
+    <a href="tel:09150706473" aria-label="Call Lacfog Academy">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.5 2.5.8 3.9.8.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C10.6 21.2 2.8 13.4 2.8 3.7c0-.6.4-1 1-1H7.2c.6 0 1 .4 1 1 0 1.4.3 2.7.8 3.9.2.3.1.7-.2 1L6.6 10.8z"/></svg>
+      0915 070 6473
+    </a>
+  </div>
+</div>
+
+<div class="nav-wrap" id="navWrap">
+  <div class="container">
+    <nav>
+      <a href="#" class="brand" aria-label="Lacfog Academy home">
+        <div class="brand-mark"><img src="lacfoglogo.jpg" alt="Lacfog Academy Logo"></div>
+        <div class="brand-name">Lacfog Academy<span>Excellence in Learning</span></div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#discover">About</a>
+        <a href="#admission">Admission</a>
+        <a href="#academics">Academics</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#news">News & Events</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#portal" class="btn btn-primary">Portal</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#discover">About</a>
+    <a href="#admission">Admission</a>
+    <a href="#academics">Academics</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#news">News & Events</a>
+    <a href="#portal" class="btn btn-primary">Portal</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="hero" id="hero">
+    <img class="hero-bg-img" id="heroBgImg" src="lacfogbuilding.jpg" alt="" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span> Nursery · Primary · Secondary</div>
+      <h1>Building Excellence <em>Through Education</em></h1>
+      <p class="sub">Explore your future with Lacfog Academy — where academic rigor meets character, and every learner is prepared to lead.</p>
+      <div class="hero-ctas">
+        <a href="#admission" class="btn btn-gold">Apply Now</a>
+        <a href="#discover" class="btn btn-ghost">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <section class="discover" id="discover">
+    <div class="container">
+      <div class="section-head" data-animate>
+        <div class="eyebrow" style="justify-content:center;">Discover Lacfog</div>
+        <h2>A Foundation Built to Last</h2>
+        <p>Providing quality education from Nursery through Senior Secondary School, guided by a curriculum that grows with every child.</p>
+      </div>
+
+      <div class="program-grid">
+        <div class="program-card" data-animate>
+          <div class="program-img" style="background:linear-gradient(155deg,#C8102E,#8B001A);"></div>
+          <div class="program-label">
+            <span class="program-num">Ages 2–5</span>
+            <h3>Nursery</h3>
+          </div>
+        </div>
+        <div class="program-card" data-animate>
+          <div class="program-img" style="background:linear-gradient(155deg,#E02443,#8B001A);"></div>
+          <div class="program-label">
+            <span class="program-num">Ages 6–11</span>
+            <h3>Primary</h3>
+          </div>
+        </div>
+        <div class="program-card" data-animate>
+          <div class="program-img" style="background:linear-gradient(155deg,#C8102E,#37000A);"></div>
+          <div class="program-label">
+            <span class="program-num">Ages 12–14</span>
+            <h3>Junior School</h3>
+          </div>
+        </div>
+        <div class="program-card" data-animate>
+          <div class="program-img" style="background:linear-gradient(155deg,#8B001A,#37000A);"></div>
+          <div class="program-label">
+            <span class="program-num">Ages 15–17</span>
+            <h3>Senior School</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="academics">
+    <div class="container">
+      <div class="section-head" data-animate>
+        <div class="eyebrow" style="justify-content:center;">Why Lacfog</div>
+        <h2>Three Pillars of Our Approach</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card" data-animate>
+          <div class="feature-img" style="background:linear-gradient(160deg,#2A2A2A,#16201c);"></div>
+          <div class="feature-content">
+            <span class="feature-tag">People</span>
+            <h3>Expert Instructors</h3>
+            <p>Qualified, experienced educators dedicated to mentoring every student toward their full potential.</p>
+          </div>
+        </div>
+        <div class="feature-card" data-animate>
+          <div class="feature-img" style="background:linear-gradient(160deg,#333333,#1a2620);"></div>
+          <div class="feature-content">
+            <span class="feature-tag">Curriculum</span>
+            <h3>STEM</h3>
+            <p>Hands-on science, technology, engineering, and mathematics that builds confident problem-solvers.</p>
+          </div>
+        </div>
+        <div class="feature-card" data-animate>
+          <div class="feature-img" style="background:linear-gradient(160deg,#1F1F1F,#121c17);"></div>
+          <div class="feature-content">
+            <span class="feature-tag">Method</span>
+            <h3>Innovative Learning</h3>
+            <p>Modern, digitally-enriched classrooms that prepare students for the world they'll graduate into.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-stat="500" data-suffix="+">
+          <div class="stat-number"><span class="count">0</span><span class="suffix"></span></div>
+          <div class="stat-underline"></div>
+          <div class="stat-label">Students</div>
+        </div>
+        <div class="stat-item" data-stat="50" data-suffix="+">
+          <div class="stat-number"><span class="count">0</span><span class="suffix"></span></div>
+          <div class="stat-underline"></div>
+          <div class="stat-label">Qualified Teachers</div>
+        </div>
+        <div class="stat-item" data-stat="20" data-suffix="+">
+          <div class="stat-number"><span class="count">0</span><span class="suffix"></span></div>
+          <div class="stat-underline"></div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item" data-stat="100" data-suffix="%">
+          <div class="stat-number"><span class="count">0</span><span class="suffix"></span></div>
+          <div class="stat-underline"></div>
+          <div class="stat-label">Commitment to Success</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" id="news">
+    <div class="container">
+      <div class="section-head" data-animate>
+        <div class="eyebrow" style="justify-content:center;">Stay Informed</div>
+        <h2>News & Events</h2>
+        <p>What's happening on campus this term.</p>
+      </div>
+
+      <div class="news-cols">
+        <div class="news-col" data-animate>
+          <h3>Latest News</h3>
+          <div class="news-card">
+            <div class="news-date"><span class="d">14</span><span class="m">Jun</span></div>
+            <div class="news-text">
+              <h4>Lacfog students sweep regional science fair</h4>
+              <p>Senior school students bring home top honours in the East-West regional STEM competition.</p>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-date"><span class="d">02</span><span class="m">Jun</span></div>
+            <div class="news-text">
+              <h4>New science laboratory commissioned</h4>
+              <p>A fully-equipped lab opens to support hands-on learning across junior and senior school.</p>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-date"><span class="d">21</span><span class="m">May</span></div>
+            <div class="news-text">
+              <h4>WAEC results: another year of strong outcomes</h4>
+              <p>Lacfog graduates post excellent results, continuing a strong multi-year academic record.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-col" data-animate>
+          <h3>Upcoming Events</h3>
+          <div class="news-card">
+            <div class="news-date"><span class="d">03</span><span class="m">Jul</span></div>
+            <div class="news-text">
+              <h4>Inter-house sports competition</h4>
+              <p>Annual house championship featuring track, field, and team events for all year groups.</p>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-date"><span class="d">18</span><span class="m">Jul</span></div>
+            <div class="news-text">
+              <h4>Senior school graduation ceremony</h4>
+              <p>Celebrating the achievements of our graduating class with family and faculty.</p>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-date"><span class="d">09</span><span class="m">Aug</span></div>
+            <div class="news-text">
+              <h4>Science exhibition open day</h4>
+              <p>Students showcase term projects to parents and the wider Lacfog community.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head" data-animate>
+        <div class="eyebrow" style="justify-content:center;">Campus Life</div>
+        <h2>A Look Inside Lacfog</h2>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" data-img="1" style="">
+          <div class="gallery-img" style="background:linear-gradient(160deg,#C8102E,#37000A);"></div>
+          <div class="gallery-overlay"><div class="gallery-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div></div>
+        </div>
+        <div class="gallery-item" data-img="2">
+          <div class="gallery-img" style="background:linear-gradient(160deg,#E02443,#8B001A);"></div>
+          <div class="gallery-overlay"><div class="gallery-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div></div>
+        </div>
+        <div class="gallery-item" data-img="3">
+          <div class="gallery-img" style="background:linear-gradient(160deg,#8B001A,#16201c);"></div>
+          <div class="gallery-overlay"><div class="gallery-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div></div>
+        </div>
+        <div class="gallery-item" data-img="4">
+          <div class="gallery-img" style="background:linear-gradient(160deg,#C8102E,#37000A);"></div>
+          <div class="gallery-overlay"><div class="gallery-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div></div>
+        </div>
+        <div class="gallery-item" data-img="5">
+          <div class="gallery-img" style="background:linear-gradient(160deg,#333333,#1a2620);"></div>
+          <div class="gallery-overlay"><div class="gallery-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div></div>
+        </div>
+        <div class="gallery-item" data-img="6">
+          <div class="gallery-img" style="background:linear-gradient(160deg,#1F1F1F,#121c17);"></div>
+          <div class="gallery-overlay"><div class="gallery-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="admission">
+    <div class="container">
+      <h2>Ready to Join Lacfog Academy?</h2>
+      <p>Begin your journey toward academic excellence today.</p>
+      <div class="cta-btns">
+        <a href="mailto:info@lacfogacademy.edu.ng?subject=Admission%20Enquiry" class="btn btn-gold">Apply for Admission</a>
+        <a href="tel:09150706473" class="btn btn-ghost">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <div class="brand-mark"><img src="lacfoglogo.jpg" alt="Lacfog Academy Logo"></div>
+          <div class="brand-name">Lacfog Academy</div>
+        </div>
+        <p>Building excellence through education and shaping future leaders, from Nursery through Senior Secondary School.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#discover">About</a></li>
+          <li><a href="#admission">Admission</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#news">News & Events</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Opposite Choba Police Station, East-West Road, Port Harcourt, Rivers State</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:09150706473">0915 070 6473</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4V4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <a href="mailto:info@lacfogacademy.edu.ng">info@lacfogacademy.edu.ng</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7.5 8.6L21.8 22H15l-5.2-6.8L3.5 22H1l8-9.2L0.7 2H7.6l4.7 6.2L18 2z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 16 12 10 15" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-1.7 3.15-1.7 3.37 0 4 2.2 4 5.1V21h-4v-5.4c0-1.3-.02-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21h-4V9z"/></svg></a>
+        </div>
+        <div class="map-embed">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lacfog Academy location map" src="https://www.google.com/maps?q=Choba%20Police%20Station%20East-West%20Road%20Port%20Harcourt&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Lacfog Academy. All Rights Reserved.</span>
+      <span>Designed for academic excellence.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+  <div id="lightboxContent" style="width:80vw; max-width:900px; height:60vh; border-radius:10px; background:linear-gradient(160deg,#C8102E,#37000A);"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- Sticky nav shadow ----
+  var navWrap = document.getElementById('navWrap');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 10){ navWrap.classList.add('scrolled'); }
+    else{ navWrap.classList.remove('scrolled'); }
+  }, { passive:true });
+
+  // ---- Mobile menu ----
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function(){
+    var isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // ---- Reveal-on-scroll ----
+  var revealEls = document.querySelectorAll('[data-animate]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // ---- Animated stat counters ----
+  var statItems = document.querySelectorAll('.stat-item');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-stat'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var countEl = el.querySelector('.count');
+    var suffixEl = el.querySelector('.suffix');
+    suffixEl.textContent = suffix;
+    var startTime = null;
+    var duration = 1400;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      countEl.textContent = Math.floor(eased * target);
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { countEl.textContent = target; }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var statIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          animateCount(entry.target);
+          statIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    statItems.forEach(function(el){ statIo.observe(el); });
+  } else {
+    statItems.forEach(function(el){ el.classList.add('in-view'); animateCount(el); });
+  }
+
+  // ---- Gallery lightbox ----
+  var lightbox = document.getElementById('lightbox');
+  var lightboxContent = document.getElementById('lightboxContent');
+  var lightboxClose = document.getElementById('lightboxClose');
+  document.querySelectorAll('.gallery-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      var bg = item.querySelector('.gallery-img').style.background;
+      lightboxContent.style.background = bg;
+      lightbox.classList.add('open');
+    });
+  });
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox){ closeLightbox(); } });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeLightbox(); } });
+
+})();
+</script>
+
+</body>
+</html>
