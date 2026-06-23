@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Lacfog Academy</title>
+<meta name="description" content="Learn about Lacfog Academy — our story, vision, staff, and facilities in Port Harcourt, Rivers State.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --brand-dark: #8B001A;
+    --brand-primary: #C8102E;
+    --brand-bright: #E02443;
+    --brand-accent: #FACC15;
+    --cream: #FAFAF7;
+    --paper: #F3F1E9;
+    --charcoal: #16201C;
+    --ink: #1A1F1C;
+    --line: rgba(200,16,46,0.14);
+    --font-display: "Fraunces", "Iowan Old Style", serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --container: 1240px;
+  }
+
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none;}
+
+  :focus-visible{
+    outline: 2.5px solid var(--brand-accent);
+    outline-offset: 3px;
+  }
+
+  .container{
+    width:100%;
+    max-width: var(--container);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color: var(--brand-primary);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px; height:2px;
+    background: var(--brand-accent);
+  }
+
+  h1,h2,h3,h4{
+    font-family: var(--font-display);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-weight:600;
+    font-size:0.95rem;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, background 0.35s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background: var(--brand-primary);
+    color: #fff;
+    box-shadow: 0 8px 24px -8px rgba(200,16,46,0.55);
+  }
+  .btn-primary:hover{
+    background: var(--brand-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -10px rgba(200,16,46,0.6);
+  }
+  .btn-ghost{
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    backdrop-filter: blur(6px);
+  }
+  .btn-ghost:hover{
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+  }
+  .btn-gold{ 
+    background: var(--brand-accent);
+    color: var(--charcoal);
+  }
+  .btn-gold:hover{
+    background: #E5BB0A;
+    transform: translateY(-2px);
+  }
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    background: var(--brand-dark);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight:500;
+  }
+  .topbar .container{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap: 24px;
+    padding-top:8px;
+    padding-bottom:8px;
+  }
+  .topbar a{
+    display:flex; align-items:center; gap:7px;
+    opacity:0.95;
+    transition: opacity 0.2s ease;
+  }
+  .topbar a:hover{ opacity:1; color: var(--brand-accent); }
+  .topbar svg{width:14px; height:14px; flex-shrink:0;}
+
+  /* ============ NAV ============ */
+  .nav-wrap{
+    position: sticky;
+    top:0;
+    z-index: 200;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow 0.3s ease;
+  }
+  .nav-wrap.scrolled{
+    box-shadow: 0 6px 24px -10px rgba(0,0,0,0.12);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 0;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-mark{
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(200,16,46,0.15);
+    overflow: hidden;
+    border: 2px solid var(--brand-primary);
+  }
+  .brand-mark img{width:100%; height:100%; object-fit:contain; padding: 2px;}
+  .brand-name{
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size:1.28rem;
+    color: var(--brand-primary);
+    line-height:1.1;
+  }
+  .brand-name span{
+    display:block;
+    font-family: var(--font-body);
+    font-weight:600;
+    font-size:0.62rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color: #888; 
+    margin-top:2px;
+  }
+
+  /* Nav with dropdown */
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+  }
+  .nav-item{
+    position: relative;
+  }
+  .nav-item > a{
+    font-weight:600;
+    font-size:0.94rem;
+    color: var(--ink);
+    position:relative;
+    padding: 4px 0;
+    transition: color 0.25s ease;
+    display:flex;
+    align-items:center;
+    gap:5px;
+  }
+  .nav-item > a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0; height:2px;
+    background: var(--brand-primary);
+    transition: width 0.3s ease;
+  }
+  .nav-item > a:hover{ color: var(--brand-primary); }
+  .nav-item > a:hover::after{ width:100%; }
+  .nav-item > a.active{ color: var(--brand-primary); }
+  .nav-item > a.active::after{ width:100%; }
+
+  .nav-item .chevron{
+    width:12px; height:12px;
+    transition: transform 0.25s ease;
+    flex-shrink:0;
+  }
+  .nav-item:hover .chevron{ transform: rotate(180deg); }
+
+  .dropdown{
+    position:absolute;
+    top: calc(100% + 12px);
+    left: -20px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px;
+    min-width: 200px;
+    box-shadow: 0 16px 44px -12px rgba(0,0,0,0.18);
+    opacity:0;
+    pointer-events:none;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 300;
+  }
+  .nav-item:hover .dropdown{
+    opacity:1;
+    pointer-events:auto;
+    transform: translateY(0);
+  }
+  .dropdown a{
+    display:block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size:0.9rem;
+    font-weight:500;
+    color: var(--ink);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .dropdown a:hover{
+    background: rgba(200,16,46,0.07);
+    color: var(--brand-primary);
+  }
+  .dropdown a.active-sub{
+    background: rgba(200,16,46,0.1);
+    color: var(--brand-primary);
+    font-weight:600;
+  }
+
+  .nav-actions{ display:flex; align-items:center; gap:18px; }
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    padding: 6px;
+  }
+  .hamburger span{
+    width:24px; height:2px;
+    background: var(--brand-primary);
+    border-radius:2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    overflow:hidden;
+    max-height:0;
+    transition: max-height 0.4s ease;
+  }
+  .mobile-menu.open{ max-height: 600px; }
+  .mobile-menu a{
+    padding: 14px 24px;
+    border-top: 1px solid var(--line);
+    font-weight:600;
+    color: var(--ink);
+    font-size:0.95rem;
+  }
+  .mobile-menu a.sub-link{
+    padding-left: 40px;
+    font-weight:500;
+    font-size:0.88rem;
+    color: #555;
+    border-top: 1px solid rgba(200,16,46,0.06);
+  }
+  .mobile-menu .btn{ margin: 16px 24px 20px; }
+
+  @media (max-width: 920px){
+    .nav-links{ display:none; }
+    .nav-actions .btn-primary{ display:none; }
+    .hamburger{ display:flex; }
+    .mobile-menu{ display:flex; }
+  }
+
+  /* ============ PAGE HERO (banner) ============ */
+  .page-hero{
+    position:relative;
+    height: 400px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background: linear-gradient(155deg, #1A1A1A 0%, #37000A 45%, #1A1A1A 100%);
+  }
+  .page-hero-bg{
+    position:absolute; inset:0;
+    background-image: url('lacfogbuilding.jpg');
+    background-size:cover;
+    background-position:center top;
+    opacity:0.35;
+  }
+  .page-hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(20,4,8,0.5) 0%, rgba(20,4,8,0.85) 100%);
+  }
+  .page-hero-content{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    padding: 0 24px;
+  }
+  .breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.82rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom:16px;
+  }
+  .breadcrumb a{ color: rgba(255,255,255,0.65); transition: color 0.2s; }
+  .breadcrumb a:hover{ color: var(--brand-accent); }
+  .breadcrumb span{ color: var(--brand-accent); font-weight:600; }
+  .breadcrumb-sep{ opacity:0.4; }
+  .page-hero h1{
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight:700;
+    text-transform:uppercase;
+  }
+  .page-hero h1 em{
+    font-style:normal;
+    color: var(--brand-accent);
+  }
+
+  /* ============ SUB-NAV (like Spring Valley tabs) ============ */
+  .sub-nav{
+    background: #fff;
+    border-bottom: 2px solid var(--line);
+    position: sticky;
+    top: 81px;
+    z-index: 150;
+  }
+  .sub-nav-inner{
+    display:flex;
+    align-items:center;
+    gap:0;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .sub-nav-inner::-webkit-scrollbar{ display:none; }
+  .sub-nav-inner a{
+    padding: 18px 22px;
+    font-size:0.88rem;
+    font-weight:600;
+    color: #666;
+    white-space:nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .sub-nav-inner a:hover{
+    color: var(--brand-primary);
+  }
+  .sub-nav-inner a.active{
+    color: var(--brand-primary);
+    border-bottom-color: var(--brand-primary);
+  }
+
+  /* ============ SHARED SECTION STYLES ============ */
+  section.about-section{ padding: 96px 0; }
+  section.about-section:nth-child(even){ background: var(--paper); }
+  section.about-section:nth-child(odd){ background: var(--cream); }
+
+  .section-label{
+    font-family: var(--font-body);
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color: var(--brand-primary);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .section-label::before{
+    content:"";
+    width:28px; height:2px;
+    background: var(--brand-accent);
+  }
+
+  /* ============ WELCOME MESSAGE ============ */
+  .welcome-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items:center;
+  }
+  .welcome-img{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    aspect-ratio: 4/3;
+  }
+  .welcome-img img{
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  .welcome-img-badge{
+    position:absolute;
+    bottom:24px; left:24px;
+    background: var(--brand-primary);
+    color:#fff;
+    border-radius:12px;
+    padding: 14px 20px;
+    font-weight:700;
+    font-size:0.82rem;
+    line-height:1.4;
+  }
+  .welcome-img-badge strong{
+    display:block;
+    font-family: var(--font-display);
+    font-size:2rem;
+    line-height:1;
+    color: var(--brand-accent);
+  }
+  .welcome-text h2{
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    font-weight:600;
+    color: var(--brand-primary);
+    margin-bottom:20px;
+  }
+  .welcome-text p{
+    color: #4A5250;
+    font-size:1.05rem;
+    line-height:1.75;
+    margin-bottom:16px;
+  }
+  .welcome-text .signature{
+    margin-top:32px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .welcome-text .signature strong{
+    font-family: var(--font-display);
+    font-size:1.1rem;
+    color: var(--brand-primary);
+  }
+  .welcome-text .signature span{
+    font-size:0.85rem;
+    color:#777;
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:860px){
+    .welcome-grid{ grid-template-columns:1fr; gap:40px; }
+  }
+
+  /* ============ STORY ============ */
+  .story-timeline{
+    position:relative;
+    max-width:780px;
+    margin:0 auto;
+  }
+  .story-timeline::before{
+    content:"";
+    position:absolute;
+    left:28px;
+    top:0; bottom:0;
+    width:2px;
+    background: linear-gradient(180deg, var(--brand-primary), var(--brand-accent));
+  }
+  .timeline-item{
+    display:flex;
+    gap:36px;
+    margin-bottom:52px;
+    padding-left:0;
+  }
+  .timeline-item:last-child{ margin-bottom:0; }
+  .timeline-dot{
+    flex-shrink:0;
+    width:58px; height:58px;
+    border-radius:50%;
+    background: var(--brand-primary);
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size:0.78rem;
+    color:#fff;
+    text-align:center;
+    line-height:1.2;
+    position:relative;
+    z-index:1;
+    box-shadow: 0 6px 20px rgba(200,16,46,0.35);
+  }
+  .timeline-body h3{
+    font-size:1.25rem;
+    color: var(--brand-primary);
+    margin-bottom:8px;
+    padding-top:14px;
+  }
+  .timeline-body p{
+    color:#5B645E;
+    font-size:0.98rem;
+    line-height:1.7;
+  }
+
+  /* ============ ETHOS & VISION ============ */
+  .ethos-grid{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:28px;
+  }
+  .ethos-card{
+    background:#fff;
+    border-radius:18px;
+    padding:36px 30px;
+    border: 1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .ethos-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 20px 44px -16px rgba(200,16,46,0.3);
+  }
+  .ethos-card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:4px;
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+  }
+  .ethos-icon{
+    width:56px; height:56px;
+    border-radius:14px;
+    background: rgba(200,16,46,0.09);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+    color: var(--brand-primary);
+  }
+  .ethos-icon svg{ width:28px; height:28px; }
+  .ethos-card h3{
+    font-size:1.15rem;
+    color: var(--ink);
+    margin-bottom:12px;
+  }
+  .ethos-card p{
+    font-size:0.93rem;
+    color:#5B645E;
+    line-height:1.7;
+  }
+
+  @media (max-width:860px){
+    .ethos-grid{ grid-template-columns:1fr; }
+  }
+  @media (min-width:861px) and (max-width:980px){
+    .ethos-grid{ grid-template-columns:1fr 1fr; }
+  }
+
+  /* ============ MEET OUR STAFF ============ */
+  .staff-grid{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:24px;
+  }
+  .staff-card{
+    text-align:center;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    border: 1px solid var(--line);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .staff-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px -14px rgba(200,16,46,0.3);
+  }
+  .staff-photo{
+    width:100%;
+    aspect-ratio:1/1;
+    background: var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .staff-photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    transition: transform 0.5s ease;
+  }
+  .staff-card:hover .staff-photo img{ transform:scale(1.07); }
+  .staff-photo-placeholder{
+    width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(135deg, #f8e8eb, #fce9e9);
+  }
+  .staff-photo-placeholder svg{
+    width:64px; height:64px;
+    color: rgba(200,16,46,0.25);
+  }
+  .staff-info{
+    padding: 22px 18px;
+  }
+  .staff-info h3{
+    font-size:1rem;
+    color: var(--ink);
+    margin-bottom:5px;
+  }
+  .staff-info .role{
+    font-size:0.8rem;
+    color: var(--brand-primary);
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:8px;
+  }
+  .staff-info p{
+    font-size:0.84rem;
+    color:#777;
+    line-height:1.5;
+  }
+
+  @media (max-width:980px){
+    .staff-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:560px){
+    .staff-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ============ OUR FACILITIES ============ */
+  .facilities-grid{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:22px;
+  }
+  .facility-card{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    aspect-ratio:4/3;
+    cursor:pointer;
+  }
+  .facility-img{
+    position:absolute; inset:0;
+    background-size:cover;
+    background-position:center;
+    transition: transform 0.6s ease;
+  }
+  .facility-card:hover .facility-img{ transform:scale(1.08); }
+  .facility-card::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(20,4,8,0.1) 40%, rgba(20,4,8,0.88) 100%);
+  }
+  .facility-label{
+    position:absolute;
+    bottom:20px; left:20px;
+    z-index:2;
+    color:#fff;
+  }
+  .facility-label .tag{
+    display:inline-block;
+    font-size:0.68rem;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color: var(--brand-accent);
+    margin-bottom:6px;
+  }
+  .facility-label h3{
+    font-size:1.15rem;
+    font-weight:600;
+  }
+
+  @media (max-width:860px){
+    .facilities-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:560px){
+    .facilities-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ============ CTA ============ */
+  .cta-section{
+    padding: 110px 0;
+    background: linear-gradient(150deg, var(--brand-primary), var(--brand-dark));
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+  .cta-section::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 2px, transparent 40px);
+  }
+  .cta-section .container{ position:relative; z-index:1; }
+  .cta-section h2{
+    color:#fff;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .cta-section p{
+    color: rgba(255,255,255,0.85);
+    font-size:1.1rem;
+    max-width:520px;
+    margin: 0 auto 38px;
+  }
+  .cta-btns{
+    display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.78);
+    padding: 90px 0 0;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 0.8fr 1fr 0.9fr;
+    gap: 48px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .footer-brand .brand-name{ color:#fff; }
+  .footer-col h4{
+    font-family: var(--font-body);
+    color:#fff;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom: 22px;
+  }
+  .footer-col p{ font-size:0.92rem; line-height:1.7; max-width: 280px; }
+  .footer-links li{ margin-bottom:13px; }
+  .footer-links a{
+    font-size:0.92rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display:inline-block;
+  }
+  .footer-links a:hover{ color: var(--brand-accent); padding-left:4px; }
+  .footer-contact li{
+    display:flex;
+    gap:10px;
+    margin-bottom:16px;
+    font-size:0.9rem;
+    line-height:1.6;
+  }
+  .footer-contact svg{ flex-shrink:0; margin-top:3px; color: var(--brand-accent); width:16px; height:16px;}
+  .footer-contact a:hover{ color: var(--brand-accent); }
+  .social-row{ display:flex; gap:10px; margin-bottom: 26px;}
+  .social-row a{
+    width:38px; height:38px;
+    border-radius:50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+    transition: all 0.25s ease;
+  }
+  .social-row a:hover{
+    background: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: var(--charcoal);
+    transform: translateY(-3px);
+  }
+  .social-row svg{ width:16px; height:16px; }
+  .map-embed{
+    border-radius:12px;
+    overflow:hidden;
+    height:120px;
+    border: 1px solid rgba(255,255,255,0.15);
+    filter: grayscale(0.3) invert(0.92) contrast(0.9);
+  }
+  .map-embed iframe{ width:100%; height:100%; border:0; }
+  .footer-bottom{
+    padding: 26px 0 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.82rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-bottom a:hover{ color: var(--brand-accent); }
+
+  @media (max-width: 980px){
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap:40px; }
+  }
+  @media (max-width: 600px){
+    .footer-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ============ ANIMATE ============ */
+  [data-animate]{
+    opacity:0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  [data-animate].in-view{
+    opacity:1;
+    transform: translateY(0);
+  }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background: var(--brand-primary); color:#fff; padding:10px 16px; z-index:2000;
+  }
+  .skip-link:focus{ left:12px; top:12px; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <a href="tel:09150706473" aria-label="Call Lacfog Academy">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.5 2.5.8 3.9.8.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C10.6 21.2 2.8 13.4 2.8 3.7c0-.6.4-1 1-1H7.2c.6 0 1 .4 1 1 0 1.4.3 2.7.8 3.9.2.3.1.7-.2 1L6.6 10.8z"/></svg>
+      0915 070 6473
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap" id="navWrap">
+  <div class="container">
+    <nav>
+      <a href="index.html" class="brand" aria-label="Lacfog Academy home">
+        <div class="brand-mark"><img src="lacfoglogo.jpg" alt="Lacfog Academy Logo"></div>
+        <div class="brand-name">Lacfog Academy<span>Excellence in Learning</span></div>
+      </a>
+
+      <div class="nav-links">
+        <!-- About with dropdown -->
+        <div class="nav-item">
+          <a href="about.html" class="active">
+            About
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="about.html#welcome" class="active-sub">Welcome Message</a>
+            <a href="about.html#story">Our Story</a>
+            <a href="about.html#ethos">Ethos &amp; Vision</a>
+            <a href="about.html#staff">Meet Our Staff</a>
+            <a href="about.html#facilities">Our Facilities</a>
+            <a href="contact.html">Contact Us &amp; Location</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="index.html#admission">Admission</a></div>
+        <div class="nav-item"><a href="index.html#academics">Academics</a></div>
+        <div class="nav-item"><a href="index.html#gallery">Gallery</a></div>
+        <div class="nav-item"><a href="index.html#news">News &amp; Events</a></div>
+        <div class="nav-item"><a href="contact.html">Contact</a></div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="https://springdrill-portal.vercel.app/login.html" class="btn btn-primary" target="_blank">Portal</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html">About</a>
+    <a href="about.html#welcome" class="sub-link">— Welcome Message</a>
+    <a href="about.html#story" class="sub-link">— Our Story</a>
+    <a href="about.html#ethos" class="sub-link">— Ethos &amp; Vision</a>
+    <a href="about.html#staff" class="sub-link">— Meet Our Staff</a>
+    <a href="about.html#facilities" class="sub-link">— Our Facilities</a>
+    <a href="index.html#admission">Admission</a>
+    <a href="index.html#academics">Academics</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#news">News &amp; Events</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://springdrill-portal.vercel.app/login.html" class="btn btn-primary" target="_blank">Portal</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>About Us</span>
+      </div>
+      <h1>About <em>Lacfog Academy</em></h1>
+    </div>
+  </section>
+
+  <!-- SUB-NAV (like Spring Valley) -->
+  <nav class="sub-nav" aria-label="About page sections">
+    <div class="container">
+      <div class="sub-nav-inner">
+        <a href="#welcome" class="active">Welcome Message</a>
+        <a href="#story">Our Story</a>
+        <a href="#ethos">Ethos &amp; Vision</a>
+        <a href="#staff">Meet Our Staff</a>
+        <a href="#facilities">Our Facilities</a>
+        <a href="contact.html">Contact Us &amp; Location</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======= 1. WELCOME MESSAGE ======= -->
+  <section class="about-section" id="welcome">
+    <div class="container">
+      <div class="welcome-grid">
+        <div class="welcome-img" data-animate>
+          <img src="lacfogandteacher.png" alt="Principal of Lacfog Academy">
+          <div class="welcome-img-badge">
+            <strong>4+</strong>
+            Years of Excellence
+          </div>
+        </div>
+        <div class="welcome-text" data-animate>
+          <div class="section-label">Principal's Message</div>
+          <h2>A Word of Welcome</h2>
+          <p>Welcome to Lacfog Academy — a school where every child is seen, heard, and equipped to achieve their full potential. Since our founding, we have been passionate about creating an environment where academic excellence and strong character development go hand in hand.</p>
+          <p>We believe education is not merely about passing examinations; it is about building confident, curious, and compassionate individuals who are ready to lead in a rapidly changing world. Our teachers are dedicated professionals who inspire a genuine love for learning in every classroom.</p>
+          <p>Whether your child is joining us at Nursery or Senior Secondary level, I invite you to explore everything Lacfog has to offer. We would be honoured to partner with your family on this journey.</p>
+          <div class="signature">
+            <strong>The Principal</strong>
+            <span>Lacfog Academy, Port Harcourt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 2. OUR STORY ======= -->
+  <section class="about-section" id="story">
+    <div class="container">
+      <div class="section-head" style="text-align:center; max-width:680px; margin:0 auto 56px;" data-animate>
+        <div class="section-label" style="justify-content:center;">Since Our Beginning</div>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.9rem); font-weight:600; color:var(--brand-primary); margin-bottom:16px; font-family:var(--font-display);">Lacfog's Story</h2>
+        <p style="font-size:1.08rem; color:#5B645E;">A journey of growth, community, and commitment to education in Rivers State.</p>
+      </div>
+      <div class="story-timeline" data-animate>
+        <div class="timeline-item">
+          <div class="timeline-dot">2020<br>Est.</div>
+          <div class="timeline-body">
+            <h3>The Beginning</h3>
+            <p>Lacfog Academy was founded with a clear vision: to provide accessible, quality education from Nursery through Senior Secondary School to children in the Choba community and beyond.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">2021</div>
+          <div class="timeline-body">
+            <h3>Growing Our Programmes</h3>
+            <p>We expanded our class offerings and launched structured Primary and Junior Secondary programmes, welcoming our first cohort of dedicated teaching staff and over 80 enrolled students.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">2022</div>
+          <div class="timeline-body">
+            <h3>STEM & Technology Focus</h3>
+            <p>A dedicated STEM laboratory and ICT suite were commissioned, reflecting our commitment to preparing students for a technology-driven future and aligning with national curriculum goals.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">2024</div>
+          <div class="timeline-body">
+            <h3>Senior School Launch & First WAEC Results</h3>
+            <p>Our Senior Secondary School welcomed its inaugural class. Our first cohort of WAEC candidates posted outstanding results, affirming the quality of our academic foundation.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">Today</div>
+          <div class="timeline-body">
+            <h3>Excellence Continues</h3>
+            <p>With over 121 students, 30+ qualified teachers, and a thriving campus culture, Lacfog Academy continues to build the next generation of leaders in Port Harcourt and across Nigeria.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 3. ETHOS & VISION ======= -->
+  <section class="about-section" id="ethos">
+    <div class="container">
+      <div class="section-head" style="text-align:center; max-width:680px; margin:0 auto 56px;" data-animate>
+        <div class="section-label" style="justify-content:center;">What We Stand For</div>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.9rem); font-weight:600; color:var(--brand-primary); margin-bottom:16px; font-family:var(--font-display);">Ethos &amp; Vision</h2>
+        <p style="font-size:1.08rem; color:#5B645E;">Our values guide every decision, every lesson, and every relationship at Lacfog Academy.</p>
+      </div>
+      <div class="ethos-grid">
+        <div class="ethos-card" data-animate>
+          <div class="ethos-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L3 7l9 5 9-5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To be a centre of excellence in education that develops well-rounded, morally upright, and academically outstanding leaders who positively impact society.</p>
+        </div>
+        <div class="ethos-card" data-animate>
+          <div class="ethos-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To provide a safe, stimulating, and inclusive learning environment where every child is supported, challenged, and celebrated — from their first day in Nursery through Senior Secondary graduation.</p>
+        </div>
+        <div class="ethos-card" data-animate>
+          <div class="ethos-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Core Values</h3>
+          <p>Integrity, excellence, discipline, and community. We believe character is as important as academic achievement, and we nurture both with equal dedication.</p>
+        </div>
+        <div class="ethos-card" data-animate>
+          <div class="ethos-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Inclusion &amp; Belonging</h3>
+          <p>Every child at Lacfog belongs. We foster a culture of respect and inclusion where diverse backgrounds and learning styles are embraced as strengths.</p>
+        </div>
+        <div class="ethos-card" data-animate>
+          <div class="ethos-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Academic Excellence</h3>
+          <p>We hold high expectations for every student, supported by rigorous curriculum delivery, regular assessment, and a staff culture of continuous professional development.</p>
+        </div>
+        <div class="ethos-card" data-animate>
+          <div class="ethos-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Digital Readiness</h3>
+          <p>Technology is embedded in how we teach and how students learn. We prepare every graduate for a world where digital fluency is an essential life skill.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 4. MEET OUR STAFF ======= -->
+  <section class="about-section" id="staff">
+    <div class="container">
+      <div class="section-head" style="text-align:center; max-width:680px; margin:0 auto 56px;" data-animate>
+        <div class="section-label" style="justify-content:center;">The People Behind the School</div>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.9rem); font-weight:600; color:var(--brand-primary); margin-bottom:16px; font-family:var(--font-display);">Meet Our Staff</h2>
+        <p style="font-size:1.08rem; color:#5B645E;">Our team of passionate, qualified educators brings energy and expertise to every classroom.</p>
+      </div>
+      <div class="staff-grid">
+        <div class="staff-card" data-animate>
+          <div class="staff-photo">
+            <div class="staff-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+          <div class="staff-info">
+            <h3>The Principal</h3>
+            <span class="role">Principal</span>
+            <p>Leading Lacfog Academy with vision, dedication, and a heart for every child's success.</p>
+          </div>
+        </div>
+        <div class="staff-card" data-animate>
+          <div class="staff-photo">
+            <div class="staff-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+          <div class="staff-info">
+            <h3>Head of Academics</h3>
+            <span class="role">Academic Director</span>
+            <p>Overseeing curriculum delivery and ensuring every learner receives the support they deserve.</p>
+          </div>
+        </div>
+        <div class="staff-card" data-animate>
+          <div class="staff-photo">
+            <div class="staff-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+          <div class="staff-info">
+            <h3>Head of Science</h3>
+            <span class="role">STEM Lead</span>
+            <p>Driving hands-on science and technology education across Junior and Senior School.</p>
+          </div>
+        </div>
+        <div class="staff-card" data-animate>
+          <div class="staff-photo">
+            <div class="staff-photo-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+          <div class="staff-info">
+            <h3>Early Years Coordinator</h3>
+            <span class="role">Nursery & Primary Lead</span>
+            <p>Creating nurturing, stimulating environments where our youngest learners thrive and grow.</p>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center; color:#888; font-size:0.88rem; margin-top:36px;">
+        Replace the placeholder cards above with staff photos and names. Add more <code>.staff-card</code> blocks as needed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======= 5. OUR FACILITIES ======= -->
+  <section class="about-section" id="facilities">
+    <div class="container">
+      <div class="section-head" style="text-align:center; max-width:680px; margin:0 auto 56px;" data-animate>
+        <div class="section-label" style="justify-content:center;">Our Campus</div>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.9rem); font-weight:600; color:var(--brand-primary); margin-bottom:16px; font-family:var(--font-display);">Our Facilities</h2>
+        <p style="font-size:1.08rem; color:#5B645E;">Modern, purpose-built spaces designed to support every dimension of student life.</p>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-card" data-animate>
+          <div class="facility-img" style="background-image:url('lacfoglaboratory.png');"></div>
+          <div class="facility-label">
+            <span class="tag">Science</span>
+            <h3>Science Laboratory</h3>
+          </div>
+        </div>
+        <div class="facility-card" data-animate>
+          <div class="facility-img" style="background-image:url('lacfogstem.png');"></div>
+          <div class="facility-label">
+            <span class="tag">Technology</span>
+            <h3>STEM Suite</h3>
+          </div>
+        </div>
+        <div class="facility-card" data-animate>
+          <div class="facility-img" style="background-image:url('lacfogict.jpeg');"></div>
+          <div class="facility-label">
+            <span class="tag">Digital</span>
+            <h3>ICT Laboratory</h3>
+          </div>
+        </div>
+        <div class="facility-card" data-animate>
+          <div class="facility-img" style="background-image:url('lacfogoutdoor.png');"></div>
+          <div class="facility-label">
+            <span class="tag">Sports</span>
+            <h3>Outdoor Play Area</h3>
+          </div>
+        </div>
+        <div class="facility-card" data-animate>
+          <div class="facility-img" style="background-image:url('lacfogsecondary.png');"></div>
+          <div class="facility-label">
+            <span class="tag">Learning</span>
+            <h3>Senior School Block</h3>
+          </div>
+        </div>
+        <div class="facility-card" data-animate>
+          <div class="facility-img" style="background-image:url('lacfogbuilding.jpg');"></div>
+          <div class="facility-label">
+            <span class="tag">Campus</span>
+            <h3>Main School Building</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Join Lacfog Academy?</h2>
+      <p>Begin your journey toward academic excellence today.</p>
+      <div class="cta-btns">
+        <a href="mailto:info@lacfogacademy.edu.ng?subject=Admission%20Enquiry" class="btn btn-gold">Apply for Admission</a>
+        <a href="contact.html" class="btn btn-ghost">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <div class="brand-mark"><img src="lacfoglogo.jpg" alt="Lacfog Academy Logo"></div>
+          <div class="brand-name">Lacfog Academy</div>
+        </div>
+        <p>Building excellence through education and shaping future leaders, from Nursery through Senior Secondary School.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#admission">Admission</a></li>
+          <li><a href="index.html#academics">Academics</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="index.html#news">News &amp; Events</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Opposite Choba Police Station, East-West Road, Port Harcourt, Rivers State</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:09150706473">0915 070 6473</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.052 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <a href="https://wa.me/2348162337303" target="_blank">+234 816 233 7303</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+            <a href="mailto:info@lacfogacademy.edu.ng">info@lacfogacademy.edu.ng</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7.5 8.6L21.8 22H15l-5.2-6.8L3.5 22H1l8-9.2L0.7 2H7.6l4.7 6.2L18 2z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 16 12 10 15" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-1.7 3.15-1.7 3.37 0 4 2.2 4 5.1V21h-4v-5.4c0-1.3-.02-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21h-4V9z"/></svg></a>
+        </div>
+        <div class="map-embed">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lacfog Academy location map" src="https://www.google.com/maps?q=Choba%20Police%20Station%20East-West%20Road%20Port%20Harcourt&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lacfog Academy. All Rights Reserved.</span>
+      <span>Powered by SPRINGDRILLER</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Sticky nav shadow
+  var navWrap = document.getElementById('navWrap');
+  window.addEventListener('scroll', function(){
+    navWrap.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive:true });
+
+  // Mobile menu
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function(){
+    var isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Scroll-reveal
+  var revealEls = document.querySelectorAll('[data-animate]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // Sub-nav active highlight on scroll
+  var subLinks = document.querySelectorAll('.sub-nav-inner a[href^="#"]');
+  var sections = [];
+  subLinks.forEach(function(link){
+    var id = link.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el){ sections.push({ link: link, el: el }); }
+  });
+  window.addEventListener('scroll', function(){
+    var scrollY = window.scrollY + 160;
+    var current = null;
+    sections.forEach(function(s){
+      if(s.el.offsetTop <= scrollY){ current = s; }
+    });
+    subLinks.forEach(function(l){ l.classList.remove('active'); });
+    if(current){ current.link.classList.add('active'); }
+  }, { passive:true });
+
+})();
+</script>
+
+</body>
+</html>
